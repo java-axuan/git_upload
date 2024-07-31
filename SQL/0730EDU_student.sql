@@ -3,7 +3,7 @@ select * from SQL_TAOYUAN_REGIONS;
 select * from SQL_TAOYUAN_WATER_SYSTEM;
 
 
---Ωm≤ﬂ7
+--Á∑¥Áøí7
 select 
     PLACE,
     SERIAL_NUMBER,
@@ -16,8 +16,8 @@ where SERIAL_NUMBER between 521 and 529
 union 
 
 select 
-    A.PLACE,
-    A.SERIAL_NUMBER,
+    PLACE,
+    SERIAL_NUMBER,
     HYDROGEN,
     TURBIDITY,
     CHLORINE 
@@ -26,7 +26,7 @@ where CHLORINE in (0.76,0.77,0.66) and HYDROGEN != 7.8 and TURBIDITY = 0.6
 order by TURBIDITY, SERIAL_NUMBER desc;
 
 
---•˝¥˙∏’A.B.C JOIN OK (•˝§£øz∏ÍÆ∆)
+--ÂÖàÊ∏¨Ë©¶A.B.C JOIN OK (ÂÖà‰∏çÁØ©Ë≥áÊñô)
 select 
     A.SERIAL_NUMBER,
     A.HYDROGEN,
@@ -44,7 +44,7 @@ left join SQL_TAOYUAN_REGIONS B
     ;
     
     
---Ωm≤ﬂ8
+--Á∑¥Áøí8
 select 
     A.SERIAL_NUMBER,
     A.HYDROGEN,
