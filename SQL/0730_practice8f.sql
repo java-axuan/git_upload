@@ -3,7 +3,7 @@ select * from SQL_TAOYUAN_REGIONS;
 select * from SQL_TAOYUAN_WATER_SYSTEM;
 
 
---½m²ß7
+--ç·´ç¿’7
 select 
     PLACE,
     SERIAL_NUMBER,
@@ -26,7 +26,7 @@ where CHLORINE in (0.76,0.77,0.66) and HYDROGEN != 7.8 and TURBIDITY = 0.6
 order by TURBIDITY, SERIAL_NUMBER desc;
 
 
---¥ý´ú¸ÕA.B.C JOIN OK (¥ý¤£¿z¸ê®Æ)
+--å…ˆæ¸¬è©¦A.B.C JOIN OK (å…ˆä¸ç¯©è³‡æ–™)
 select 
     A.SERIAL_NUMBER,
     A.HYDROGEN,
@@ -44,7 +44,7 @@ left join SQL_TAOYUAN_REGIONS B
     ;
     
     
---½m²ß8
+--ç·´ç¿’8
 select 
     A.SERIAL_NUMBER as "§Ç¸¹",
     A.HYDROGEN as "´âÂ÷¤l¿@«×",
