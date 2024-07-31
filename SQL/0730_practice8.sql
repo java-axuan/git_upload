@@ -16,8 +16,8 @@ where SERIAL_NUMBER between 521 and 529
 union 
 
 select 
-    A.PLACE,
-    A.SERIAL_NUMBER,
+    PLACE,
+    SERIAL_NUMBER,
     HYDROGEN,
     TURBIDITY,
     CHLORINE 
@@ -46,14 +46,14 @@ left join SQL_TAOYUAN_REGIONS B
     
 --練習8
 select 
-    A.SERIAL_NUMBER,
-    A.HYDROGEN,
-    A.TURBIDITY,
-    A.CHLORINE,
-    C.WATER_PURIFICATION_PLANT,
-    C.WATER_SUPPLY,
-    B.TOWNSHIP,
-    B.PLACE
+    A.SERIAL_NUMBER as "序號",
+    A.HYDROGEN as "氯離子濃度",
+    A.TURBIDITY as "濁度",
+    A.CHLORINE as "自由有效餘氯",
+    C.WATER_PURIFICATION_PLANT as "淨水廠",
+    C.WATER_SUPPLY as "供水系統",
+    B.TOWNSHIP as "行政區",
+    B.PLACE as "路段"
 from(select 
     PLACE,
     SERIAL_NUMBER,
