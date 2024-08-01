@@ -1,5 +1,5 @@
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A001', '苗栗縣竹南鎮中埔街20號', 'G1', 100, 1, 'C001');
+insert into EDU_STUDENT.EVACAUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VILLAGE)
+ values ('A001', '苗栗縣竹南鎮中埔街20號', 'G1', 100, 1, 'C001');
 
 insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
 values ('A002', '苗栗縣竹南鎮和平街79號', 'G2', 3142, 1, 'C002');
