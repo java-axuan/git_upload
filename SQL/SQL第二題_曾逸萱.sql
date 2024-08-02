@@ -1,4 +1,4 @@
-create table STUDENT.EVACUATIONFACILITY(
+create table STUDENT.EVACUTIONFACILITY(
     SERIAL CHAR(4 BYTE) primary key,
     ADDRESS NVARCHAR2(50),
     EFTYPE CHAR(2 BYTE),
@@ -7,11 +7,11 @@ create table STUDENT.EVACUATIONFACILITY(
     VSERIAL CHAR(4 BYTE)
 );
 
-alter table STUDENT.EVACAUATIONFACILITY
- add foreign key(類別) references 設施類別(類別代號);
+alter table STUDENT.EVACUATIONFACILITY
+ add foreign key(EFTYPE) references STUDENT.BUILDINGTYPE(BSERIAL);
 
-alter table 苗栗縣警察局防空疏散避難設施
- add foreign key(村里別代號) references 轄管村里聯絡資訊(村里別代號);
+alter table STUDENT.EVACUATIONFACILITY
+ add foreign key(VSERIAL) references STUDENT.VILLAGEINFOR(VSERIAL);
 
 
 create table STUDENT.BUILDINGTYPE(

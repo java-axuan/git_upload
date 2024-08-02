@@ -1,10 +1,10 @@
 --5-1
-create table 苗栗縣警察局防空疏散避難設施1 as select * from 苗栗縣警察局防空疏散避難設施 ; 
+create table STUDENT.EVACUATIONFACILITY1 as select * from STUDENT.EVACUATIONFACILITY ; 
 
-update 苗栗縣警察局防空疏散避難設施1
-set 容人數量 = 5000
-where 設施地址 = '苗栗縣竹南鎮和平街79號';
+update STUDENT.EVACUATIONFACILITY1
+set EFCAPACITY = 5000
+where ADDRESS = '苗栗縣竹南鎮和平街79號';
 
 --5-2
-delete from 苗栗縣警察局防空疏散避難設施1
-where 容人數量 < 1000;
+delete from STUDENT.EVACUATIONFACILITY1
+where EFCAPACITY < 1000;
