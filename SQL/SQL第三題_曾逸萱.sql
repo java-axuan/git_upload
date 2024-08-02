@@ -1,86 +1,86 @@
-insert into EDU_STUDENT.EVACAUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VILLAGE)
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
  values ('A001', '苗栗縣竹南鎮中埔街20號', 'G1', 100, 1, 'C001');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A002', '苗栗縣竹南鎮和平街79號', 'G2', 3142, 1, 'C002');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A002', '苗栗縣竹南鎮和平街79號', 'G2', 3142, 1, 'C002');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A003', '苗栗縣竹南鎮龍山路三段142號', 'G2', 1072, 1, 'C003');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A003', '苗栗縣竹南鎮龍山路三段142號', 'G2', 1072, 1, 'C003');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A004', '苗栗縣後龍鎮中華路1498號', 'G3', 32, 1, 'C004');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A004', '苗栗縣後龍鎮中華路1498號', 'G3', 32, 1, 'C004');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A005', '苗栗縣苗栗市米市街80號', 'G1', 106, 1, 'C005');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A005', '苗栗縣苗栗市米市街80號', 'G1', 106, 1, 'C005');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A006', '苗栗縣苗栗市光復路117號', 'G1', 26, 1, 'C005');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A006', '苗栗縣苗栗市光復路117號', 'G1', 26, 1, 'C005');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A007', '苗栗縣苗栗市博愛街109號', 'G2', 2038, 2, 'C005');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A007', '苗栗縣苗栗市博愛街109號', 'G2', 2038, 2, 'C005');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A008', '苗栗縣苗栗市大同路53號', 'G2', 128, 2, 'C005');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A008', '苗栗縣苗栗市大同路53號', 'G2', 128, 2, 'C005');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A009', '苗栗縣頭份市民族里和平路102號', 'G3', 353, 1, 'C006');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A009', '苗栗縣頭份市民族里和平路102號', 'G3', 353, 1, 'C006');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A010', '苗栗縣頭份市忠孝忠孝一路69號', 'G4', 501, 1, 'C007');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A010', '苗栗縣頭份市忠孝忠孝一路69號', 'G4', 501, 1, 'C007');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A011', '苗栗縣頭份市信義里中正路65號', 'G1', 194, 1, 'C008');
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A011', '苗栗縣頭份市信義里中正路65號', 'G1', 194, 1, 'C008');
 
-insert into 苗栗縣警察局防空疏散避難設施 (避難設施編號,設施地址,類別,容人數量,地下樓層數,村里別代號)
-values ('A012', '苗栗縣頭份市信義里中正路116號', 'G4', 78, 1, 'C008');
-
+insert into STUDENT.EVACUATIONFACILITY (SERIAL,ADDRESS,EFTYPE,EFCAPACITY,FLOORS,VSERIAL)
+ values ('A012', '苗栗縣頭份市信義里中正路116號', 'G4', 78, 1, 'C008');
+commit;
 --
 
-insert into 設施類別 (類別代號,類別)
-values ('G1', '公寓');
+insert into STUDENT.BUILDINGTYPE(BSERIAL,BUILDING)
+ values ('G1', '公寓');
 
-insert into 設施類別 (類別代號,類別)
-values ('G2', '大樓');
+insert into STUDENT.BUILDINGTYPE(BSERIAL,BUILDING)
+ values ('G2', '大樓');
 
-insert into 設施類別 (類別代號,類別)
-values ('G3', '公共設施');
+insert into STUDENT.BUILDINGTYPE(BSERIAL,BUILDING)
+ values ('G3', '公共設施');
 
-insert into 設施類別 (類別代號,類別)
-values ('G4', '私營單位');
-
+insert into STUDENT.BUILDINGTYPE(BSERIAL,BUILDING)
+ values ('G4', '私營單位');
+commit;
 --
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C001', '大埔里', '竹南鎮公義路1035號', '037-581072', 'M001');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C001', '大埔里', '竹南鎮公義路1035號', '037-581072', 'M001');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C002', '竹南里', '竹南鎮竹南里中山路103號', '037-472735', 'M001');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C002', '竹南里', '竹南鎮竹南里中山路103號', '037-472735', 'M001');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C003', '山佳里', '竹南鎮山佳里國光街14號', '037-614186', 'M001');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C003', '山佳里', '竹南鎮山佳里國光街14號', '037-614186', 'M001');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C004', '埔頂里', '後龍鎮埔頂里中興路136-1號', '037-724839', 'M001');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C004', '埔頂里', '後龍鎮埔頂里中興路136-1號', '037-724839', 'M001');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C005', '綠苗里', '苗栗市綠苗里中正路766號', '037-333240', 'M002');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C005', '綠苗里', '苗栗市綠苗里中正路766號', '037-333240', 'M002');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C006', '民族里', '民族里民族路96號', '037-660001', 'M003');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C006', '民族里', '民族里民族路96號', '037-660001', 'M003');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C007', '忠孝里', '忠孝里光大街82號', '037-661145', 'M003');
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C007', '忠孝里', '忠孝里光大街82號', '037-661145', 'M003');
 
-insert into 轄管村里聯絡資訊 (村里別代號, 村里別, 村里辦公室, 村里辦公室電話, 轄管分局代碼)
-values ('C008', '信義里', '信義里信義路53巷1號', '037-616072', 'M003');
-
+insert into STUDENT.VILLAGEINFOR (VSERIAL, VILLAGE, VADDRESS, VTEL, PSERIAL)
+ values ('C008', '信義里', '信義里信義路53巷1號', '037-616072', 'M003');
+commit;
 --
-insert into 轄管分局資訊 (轄管分局代碼, 轄管分局, 分局地址, 分局電話)
-values ('M001', '竹南分局', '苗栗縣竹南鎮民族街72號', '037-474796');
+insert into STUDENT.POLICEINFOR(PSERIAL, POLICESTAION, PADDRESS, PTEL)
+ values ('M001', '竹南分局', '苗栗縣竹南鎮民族街72號', '037-474796');
 
-insert into 轄管分局資訊 (轄管分局代碼, 轄管分局, 分局地址, 分局電話)
-values ('M002', '苗栗分局', '苗栗縣苗栗市金鳳街109號', '037-320059');
+insert into STUDENT.POLICEINFOR(PSERIAL, POLICESTAION, PADDRESS, PTEL)
+ values ('M002', '苗栗分局', '苗栗縣苗栗市金鳳街109號', '037-320059');
 
-insert into 轄管分局資訊 (轄管分局代碼, 轄管分局, 分局地址, 分局電話)
-values ('M003', '頭份分局', '苗栗縣頭份市中興路503號', '037-663004');
-
+insert into STUDENT.POLICEINFOR(PSERIAL, POLICESTAION, PADDRESS, PTEL)
+ values ('M003', '頭份分局', '苗栗縣頭份市中興路503號', '037-663004');
+commit;
