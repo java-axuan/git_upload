@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class DbPrint {
 
@@ -24,8 +23,7 @@ public class DbPrint {
 		ResultSet rs = null;
 
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
-				PreparedStatement pstmt = conn.prepareStatement("select * from STUDENT.CARS");
-				Scanner scanner = new Scanner(System.in);) {
+				PreparedStatement pstmt = conn.prepareStatement("select * from STUDENT.CARS");) {
 
 			// ResultSet物件儲存查詢結果
 			rs = pstmt.executeQuery();

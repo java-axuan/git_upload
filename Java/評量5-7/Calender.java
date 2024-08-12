@@ -37,7 +37,7 @@ public class Calender {
 			System.out.print("   "); // 空三格
 		}
 
-		// 當day < 月總天數，印出day，用%2d 自動補空格做對齊
+		// 當day <= 月總天數，印出day，用%2d 自動補空格做對齊
 		for (int day = 1; day <= daysInMonth; day++) {
 			System.out.printf("%2d ", day);
 

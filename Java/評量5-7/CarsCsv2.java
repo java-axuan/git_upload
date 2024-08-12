@@ -31,6 +31,8 @@ public class CarsCsv2 {
 
 			// 讀取第一行欄位名稱
 			if (sc.hasNextLine()) {
+				// sc.nextLine() 讀取文件第一行
+				// .split(",") 分割數據
 				headers = sc.nextLine().split(",");
 
 				// 去掉每個欄位名稱的前後空白字符
@@ -74,8 +76,8 @@ public class CarsCsv2 {
 		StringBuilder sb = new StringBuilder();
 		for (Map<String, String> map : carsLinkedList) {
 			BigDecimal price = new BigDecimal(map.get("Price"));
-			sb.append("製造商：").append(map.get("Manufacturer")).append("，型號：").append(map.get("Type")).append("，底價：").append(map.get("Min.Price")).append("，售價：")
-					.append(price);
+			sb.append("製造商：").append(map.get("Manufacturer")).append("，型號：").append(map.get("Type")).append("，底價：")
+					.append(map.get("Min.Price")).append("，售價：").append(price);
 
 			System.out.println(sb.toString());
 			sb.setLength(0); // 壓縮sb變成0
@@ -85,10 +87,11 @@ public class CarsCsv2 {
 		try (BufferedWriter bufferedWriter = new BufferedWriter(
 				new OutputStreamWriter(new FileOutputStream(desktopPath2), "UTF-8"))) {
 
-			bufferedWriter.write("Manufacturer" + "," + "Type" + "," + "Min.Price" + "," + "Price" );
+			// 寫入欄位行稱
+			bufferedWriter.write("Manufacturer" + "," + "TYPE" + "," + "Min.PRICE" + "," + "Price");
 			bufferedWriter.newLine();
-			
-			// 寫入
+
+			// for each 迴圈對list 資料做bufferedWriter資料寫入
 			for (Map<String, String> map : carsLinkedList) {
 
 				bufferedWriter.write(map.get("Manufacturer") + "," + map.get("Type") + "," + map.get("Min.Price") + ","

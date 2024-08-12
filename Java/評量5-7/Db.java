@@ -48,9 +48,9 @@ public class Db {
 		scanner.close();
 	}
 
-	// Select ok
 	private static void doQuery() {
 		
+		// 操作完要關掉
 		ResultSet rs = null;
 		
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
@@ -109,7 +109,6 @@ public class Db {
 
 	}
 
-	// Insert ok
 	private static void doInsert() {
 		// 1. 取得連線
 		// 2. 寫入 SQL 指令
@@ -140,7 +139,6 @@ public class Db {
 
 	}
 
-	// Update ok
 	private static void doUpdate() {
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
 				PreparedStatement pstmt = conn.prepareStatement(UPDATE_CARS_SQL);
@@ -170,7 +168,6 @@ public class Db {
 		}
 	}
 
-	// Delete ok
 	private static void doDelete() {
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
 				PreparedStatement pstmt = conn.prepareStatement(DELETE_CARS_SQL);
