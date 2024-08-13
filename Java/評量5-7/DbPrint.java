@@ -12,21 +12,19 @@ import java.util.Map;
 
 public class DbPrint {
 
-	public static final String CONN_URL = "jdbc:oracle:thin:@//localhost:1521/XE";
+	private static final String CONN_URL = "jdbc:oracle:thin:@//localhost:1521/XE";
 
-	public static final String USER_NAME = "student";
+	private static final String USER_NAME = "student";
 
-	public static final String PASSWORD = "student123456";
+	private static final String PASSWORD = "student123456";
 
 	public static void main(String[] args) {
 
-		ResultSet rs = null;
-
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
-				PreparedStatement pstmt = conn.prepareStatement("select * from STUDENT.CARS");) {
+				PreparedStatement pstmt = conn.prepareStatement("select * from STUDENT.CARS");
+				ResultSet rs = pstmt.executeQuery();) {
 
-			// ResultSet物件儲存查詢結果
-			rs = pstmt.executeQuery();
+		
 			List<Map<String, String>> carLinkedList = new ArrayList<>();
 			StringBuilder sb = new StringBuilder();
 
@@ -55,14 +53,7 @@ public class DbPrint {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+
 		}
 	}
 

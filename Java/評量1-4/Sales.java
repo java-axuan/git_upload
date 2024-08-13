@@ -11,7 +11,7 @@ public class Sales extends Employee {
 		super(name, department, salary);
 		this.performance = performance;
 		bouns = (int) (performance * 0.05);
-		payment = getSalary() + bouns;
+		payment = salary + bouns;
 
 	}
 

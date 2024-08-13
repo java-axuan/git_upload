@@ -71,33 +71,32 @@ public class CarsCsv2 {
 			}
 		});
 
-		// 打印確認
-		// 用for each 迴圈把carsList 資料取出
-		StringBuilder sb = new StringBuilder();
-		for (Map<String, String> map : carsLinkedList) {
-			BigDecimal price = new BigDecimal(map.get("Price"));
-			sb.append("製造商：").append(map.get("Manufacturer")).append("，型號：").append(map.get("Type")).append("，底價：")
-					.append(map.get("Min.Price")).append("，售價：").append(price);
-
-			System.out.println(sb.toString());
-			sb.setLength(0); // 壓縮sb變成0
-		}
-
 		// 寫入csv
 		try (BufferedWriter bufferedWriter = new BufferedWriter(
 				new OutputStreamWriter(new FileOutputStream(desktopPath2), "UTF-8"))) {
 
+			StringBuilder sb = new StringBuilder();
+			sb.append("Manufacturer").append(",").append("TYPE").append(",").append("Min.PRICE").append(",")
+					.append("Price");
+			String column = sb.toString();
+
 			// 寫入欄位行稱
-			bufferedWriter.write("Manufacturer" + "," + "TYPE" + "," + "Min.PRICE" + "," + "Price");
+			bufferedWriter.write(column);
 			bufferedWriter.newLine();
+			sb.setLength(0);
 
 			// for each 迴圈對list 資料做bufferedWriter資料寫入
 			for (Map<String, String> map : carsLinkedList) {
+				BigDecimal minPrice = new BigDecimal(map.get("Min.Price"));
+				BigDecimal price = new BigDecimal(map.get("Price"));
 
-				bufferedWriter.write(map.get("Manufacturer") + "," + map.get("Type") + "," + map.get("Min.Price") + ","
-						+ map.get("Price"));
+				sb.append(map.get("Manufacturer")).append(",").append(map.get("Type")).append(",")
+						.append(minPrice).append(",").append(price);
+				String value = sb.toString();
+
+				bufferedWriter.write(value);
 				bufferedWriter.newLine();
-
+				sb.setLength(0);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -17,9 +17,6 @@ public class HRmainBufferWriter {
 		employeeList.add(new Sales("林大鈞", "保代部", 38000, 4000));
 		employeeList.add(new Supervisor("李中白", "資訊部", 65000));
 		employeeList.add(new Supervisor("林小中", "理財部", 80000));
-//		for (Employee employee : employeeList) {
-//			employee.printInfo();
-//		}
 
 		// 對employeeList 做排序
 		Collections.sort(employeeList, new Comparator<Employee>() {
@@ -28,13 +25,10 @@ public class HRmainBufferWriter {
 				return b.getDepartment().compareTo(a.getDepartment());
 			}
 		});
-		
+
 		// 找桌面路徑
 		String userHome = System.getProperty("user.home");
 		String desktopPath = Paths.get(userHome, "Desktop", "output.csv").toString();
-
-		// csv換行
-		String NEW_LINE = "\n";
 
 		// 寫入csv
 		try (BufferedWriter bufferedWriter = new BufferedWriter(
@@ -42,16 +36,27 @@ public class HRmainBufferWriter {
 
 			// 寫入員工的資料
 			for (Employee employee : employeeList) {
-
+				
+				StringBuilder sb1 = new StringBuilder();
+//				Supervisor supervisor1 = (Supervisor)employee;
+//				sb1.append(employee.getName()).append(",").append(supervisor1.getPayment());
+				sb1.append(employee.getName()).append(",").append(((Supervisor) employee).getPayment());
+				
+				String supervisor = sb1.toString();
+				
 				// 判斷employee 是sales 還是supervisor
 				// 寫入員工的name,salary
 				if (employee instanceof Supervisor) {
-					bufferedWriter.write(employee.getName() + "," + ((Supervisor) employee).getPayment());
-					bufferedWriter.write(NEW_LINE);
-				} else {
-					bufferedWriter.write(employee.getName() + "," + ((Sales) employee).getPayment());
-					bufferedWriter.write(NEW_LINE);
-				}
+//					bufferedWriter.write(employee.getName() + "," + ((Supervisor) employee).getPayment());
+					bufferedWriter.write(supervisor);
+					bufferedWriter.newLine();
+					sb1.setLength(0);
+					;
+				} 
+//				else {
+//					bufferedWriter.write(employee.getName() + "," + ((Sales) employee).getPayment());
+//					bufferedWriter.newLine();
+//				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
