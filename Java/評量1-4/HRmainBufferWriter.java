@@ -34,29 +34,28 @@ public class HRmainBufferWriter {
 		try (BufferedWriter bufferedWriter = new BufferedWriter(
 				new OutputStreamWriter(new FileOutputStream(desktopPath), "UTF-8"))) {
 
+			StringBuilder sb1 = new StringBuilder();
+
 			// 寫入員工的資料
 			for (Employee employee : employeeList) {
-				
-				StringBuilder sb1 = new StringBuilder();
-//				Supervisor supervisor1 = (Supervisor)employee;
-//				sb1.append(employee.getName()).append(",").append(supervisor1.getPayment());
-				sb1.append(employee.getName()).append(",").append(((Supervisor) employee).getPayment());
-				
-				String supervisor = sb1.toString();
-				
+
 				// 判斷employee 是sales 還是supervisor
 				// 寫入員工的name,salary
 				if (employee instanceof Supervisor) {
-//					bufferedWriter.write(employee.getName() + "," + ((Supervisor) employee).getPayment());
-					bufferedWriter.write(supervisor);
+
+					sb1.append(employee.getName()).append(",").append(((Supervisor) employee).getPayment());
+					bufferedWriter.write(sb1.toString());
 					bufferedWriter.newLine();
 					sb1.setLength(0);
-					;
-				} 
-//				else {
-//					bufferedWriter.write(employee.getName() + "," + ((Sales) employee).getPayment());
-//					bufferedWriter.newLine();
-//				}
+
+				} else {
+
+					sb1.append(employee.getName()).append(",").append(((Sales) employee).getPayment());
+					bufferedWriter.write(sb1.toString());
+					bufferedWriter.newLine();
+					sb1.setLength(0);
+
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
