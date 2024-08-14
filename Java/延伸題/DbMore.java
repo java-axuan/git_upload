@@ -1,4 +1,4 @@
-package com.cathaybk.practice.nt50332.b;
+package com.cathaybk.morepractice.nt50332.b;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -14,7 +14,11 @@ public class Db {
 
 	private static final String INSERT_CARS_SQL = "insert into STUDENT.CARS (MANUFACTURER, TYPE, MIN_PRICE, PRICE) values (?, ?, ?, ?)";
 
-	private static final String UPDATE_CARS_SQL = "update STUDENT.CARS set MIN_PRICE = ?, PRICE = ? where MANUFACTURER = ? and TYPE = ?";
+	private static final String UPDATE1_CARS_SQL = "update STUDENT.CARS set MIN_PRICE = ? where MANUFACTURER = ? and TYPE = ?";
+
+	private static final String UPDATE2_CARS_SQL = "update STUDENT.CARS set PRICE = ? where MANUFACTURER = ? and TYPE = ?";
+
+	private static final String UPDATE3_CARS_SQL = "update STUDENT.CARS set MIN_PRICE = ?, PRICE = ? where MANUFACTURER = ? and TYPE = ?";
 
 	private static final String DELETE_CARS_SQL = "delete from STUDENT.CARS where MANUFACTURER = ? and TYPE = ?";
 
@@ -83,18 +87,44 @@ public class Db {
 
 				// 確認是否有資料
 				if (!map.isEmpty()) {
-					System.out.println("請根據指示輸入要更新的車子資訊");
+					System.out.println();
+					System.out.println("您要更新何種資訊? 請回答1、2、3");
 				} else {
 					return;
 				}
 
 				// 輸入update資訊
-				System.out.println("請輸入更新後的底價:");
-				String newMinPrice = scanner.next();
-				System.out.println("請輸入更新後的售價:");
-				String newPrice = scanner.next();
+				System.out.println("1:底價，2:售價，3:底價及售價");
+				String update = scanner.next();
+				String newMinPrice = null;
+				String newPrice = null;
+				String updateSQL = null;
+				switch (update) {
+				case "1": {
+					updateSQL = UPDATE1_CARS_SQL;
+					System.out.println("請輸入更新後的底價:");
+					newMinPrice = scanner.next();
+					break;
+				}
+				case "2": {
+					updateSQL = UPDATE2_CARS_SQL;
+					System.out.println("請輸入更新後的售價:");
+					newPrice = scanner.next();
+					break;
+				}
+				case "3": {
+					updateSQL = UPDATE3_CARS_SQL;
+					System.out.println("請輸入更新後的底價:");
+					newMinPrice = scanner.next();
+					System.out.println("請輸入更新後的售價:");
+					newPrice = scanner.next();
+					break;
+				}
+				default:
+					System.out.println("請重新執行，並確認輸入的指令為1、2、3。");
+				}
 
-				doUpdate(manufacturer, type, newMinPrice, newPrice);
+				doUpdate(update, updateSQL, manufacturer, type, newMinPrice, newPrice);
 				break;
 			}
 			case "delete": {
@@ -197,17 +227,34 @@ public class Db {
 		}
 	}
 
-	private static void doUpdate(String manufacturer, String type, String newMinPrice, String newPrice) {
+	private static void doUpdate(String update, String updateSQL, String manufacturer, String type, String newMinPrice,
+			String newPrice) {
 		try (Connection conn = DriverManager.getConnection(CONN_URL, USER_NAME, PASSWORD);
-				PreparedStatement pstmt = conn.prepareStatement(UPDATE_CARS_SQL);) {
+				PreparedStatement pstmt = conn.prepareStatement(updateSQL);) {
 			try {
 				conn.setAutoCommit(false);
 
-				pstmt.setString(1, newMinPrice);
-				pstmt.setString(2, newPrice);
-				pstmt.setString(3, manufacturer);
-				pstmt.setString(4, type);
-
+				switch (updateSQL) {
+				case "update STUDENT.CARS set MIN_PRICE = ? where MANUFACTURER = ? and TYPE = ?": {
+					pstmt.setString(1, newMinPrice);
+					pstmt.setString(2, manufacturer);
+					pstmt.setString(3, type);
+					break;
+				}
+				case "update STUDENT.CARS set PRICE = ? where MANUFACTURER = ? and TYPE = ?": {
+					pstmt.setString(1, newPrice);
+					pstmt.setString(2, manufacturer);
+					pstmt.setString(3, type);
+					break;
+				}
+				case "update STUDENT.CARS set MIN_PRICE = ?, PRICE = ? where MANUFACTURER = ? and TYPE = ?": {
+					pstmt.setString(1, newMinPrice);
+					pstmt.setString(2, newPrice);
+					pstmt.setString(3, manufacturer);
+					pstmt.setString(4, type);
+					break;
+				}
+				}
 				pstmt.executeUpdate();
 				conn.commit();
 				System.out.println("更新成功");
