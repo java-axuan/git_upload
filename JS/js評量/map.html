@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            margin: 10px;
+        }
+    </style>
+    <script src="HashMap.js"></script>
+    <script>
+        const map = new HashMap();
+        window.onload = function () {
+
+            // 把資料送進result且畫面保留
+            document.getElementById('put').onclick = function () {
+
+                let key = document.getElementById('keys').value;
+                let value = document.getElementById('values').value
+
+                // 判斷key
+                if (map.contains(document.getElementById('keys').value)) {
+                    alert('KEY不可重覆');
+                    return;
+                } else if (key == '') {
+                    alert('KEY不可空白');
+                    return;
+                }
+
+                // 把值put進map
+                map.put(key, value);
+
+                // result顯示map資料
+                document.getElementById('rss').innerHTML += '　　' + key + ':' + map.get(key) + '<br>';
+
+            };
+
+            // clear清空result
+            document.getElementById('clear').onclick = function () {
+                document.getElementById('rss').innerHTML = '';
+            };
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>KEY</td>
+                <td><input type="text" id="keys" name="key" /></td>
+            </tr>
+            <tr>
+                <td>VALUE</td>
+                <td><input type="text" id="values" name="value" /></td>
+            </tr>
+        </table>
+        <span>________________________________________</span>
+        <br />
+        <br />
+
+        <p><button type="button" id="put">PUT</button>
+            <button type="reset" id="clear">CLEAR</button>
+        </p>
+
+
+
+        <span>________________________________________</span>
+        <br />
+        <br />
+
+        <span>【RESULT】</span>
+        <p>
+        <div id="rss"></div>
+        </p>
+
+    </form>
+</body>
+
+</html>

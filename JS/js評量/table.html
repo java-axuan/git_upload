@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+
+        let clickCounter = 0;
+
+        window.onload = function () {
+
+            // 新增
+            document.getElementById('insert').onclick = function () {
+
+                let manufac = document.getElementById('manufac').value;
+                let type = document.getElementById('type').value;
+                let minPrice = document.getElementById('minPrice').value;
+                let price = document.getElementById('price').value;
+                const tr1 = document.createElement('tr');
+
+                // 製造商、類別不可空白
+                if (manufac == '' || type == '') {
+                    alert('請注意!製造商、類別不可空白');
+                    return;
+                }
+
+                // 計算 onclick 次數，用在序號
+                clickCounter++;
+
+                // 先 tr append td，組裝好一欄 7 個 td
+                for (let i = 1; i <= 7; i++) {
+                    let td = document.createElement('td');
+
+                    switch (i) {
+                        //如果 td 裡面要加東西，就用 td.innerHTML 寫'字串'
+                        case (1): td.innerHTML = '<input name="select" onclick="callData(this)" type="radio" />'; break;
+                        case (2): td.innerHTML = clickCounter; break;
+                        case (3): td.innerHTML = manufac; break;
+                        case (4): td.innerHTML = type; break;
+                        case (5): td.innerHTML = minPrice; break;
+                        case (6): td.innerHTML = price; break;
+                        case (7): td.innerHTML = '<button onclick="deleteRow(this)" type="button">刪除</button>'; break;// onclick時呼叫deleteRow函數(放全域) 傳入this(button)
+                    }
+
+                    tr1.appendChild(td);
+                }
+
+                // 再用infos(tbody)去 append 組裝好的 tr
+                document.getElementById('infos').appendChild(tr1);
+
+            };
+
+            // 清空result
+            document.getElementById('clear').onclick = function () {
+                document.getElementById('infos').innerHTML = '';
+            };
+
+            // 修改
+            document.getElementById('update').onclick = function (radio) {
+
+                const selected = document.querySelector('input[name="select"]:checked'); //檢核有沒有按 radio
+                let manufac = document.getElementById('manufac').value;
+                let type = document.getElementById('type').value;
+
+                if (!selected) {
+                    alert('請先點選要更改的資料');
+                    return;
+                }
+
+                if (manufac == '' || type == '') {
+                    alert('請注意!製造商、類別不可空白');
+                    return;
+                }
+
+                // 抓radio在哪裡，找到td
+                let where = document.querySelector('input[name="select"]:checked').parentNode;
+
+                // 找到tr
+                let row = where.parentNode;
+                let cells = row.cells;
+
+                // 更新資訊
+                cells[4].innerText = document.getElementById('minPrice').value;
+                cells[5].innerText = document.getElementById('price').value;
+
+            };
+        };
+
+
+        //刪除
+        const deleteRow = function (button) {
+            // 按的是哪一行
+            let tr = button.parentNode.parentNode; // button.parentNode : td , button.parentNode.parentNode : tr
+            // 刪除行
+            tr.parentNode.removeChild(tr); // tr.parentNode : tbody, .removeChild(tr) : 對tbody跟tr的節點刪掉，把這個tr刪除
+            // 呼叫更新序號function
+            reCount();
+        };
+
+        // 更新序號function
+        const reCount = function () {
+
+            let infos1 = document.getElementById("infos");
+            clickCounter = infos1.rows.length; // 刪除資料後的 clickCounter 依照表格有幾列就幾號，不要接續原本的clickCounter
+
+            // infos1.rows.length : 總共幾筆資料, .cells[1] : 序號列
+            for (let i = 0; i < infos1.rows.length; i++) {
+                infos1.rows[i].cells[1].innerText = i + 1;
+            }
+
+        };
+
+        // 按 radio，把資訊帶入上方欄位
+        const callData = function (radio) {
+
+            // 按的是第幾行
+            let row = radio.parentNode.parentNode;
+            let cells = row.cells;
+
+            document.getElementById('manufac').value = cells[2].innerText;
+            document.getElementById('type').value = cells[3].innerText;
+            document.getElementById('minPrice').value = cells[4].innerText;
+            document.getElementById('price').value = cells[5].innerText;
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>製造商</td>
+                <td><input type="text" id="manufac" /></td>
+                <td>類別</td>
+                <td><input type="text" id="type" /></td>
+            </tr>
+            <tr>
+                <td>底價</td>
+                <td><input type="text" id="minPrice" /></td>
+                <td>售價</td>
+                <td><input type="text" id="price" /></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div align='center'>
+                        <button type="button" id="insert">新增</button>
+                        <button type="button" id="update">修改</button>
+                        <button type="reset" id="clear">清空</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br />
+    <table>
+        <thead id="thead">
+            <tr>
+                <td>　</td>
+                <td>序號</td>
+                <td>製造商</td>
+                <td>類別</td>
+                <td>底價</td>
+                <td>售價</td>
+                <td>　</td>
+            </tr>
+        </thead>
+
+        <tbody id="infos">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
