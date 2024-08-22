@@ -18,16 +18,20 @@
     <script>
 
         let clickCounter = 0;
+        let manufac;
+        let type;
+        let minPrice;
+        let price;
 
         window.onload = function () {
 
             // 新增
             document.getElementById('insert').onclick = function () {
 
-                let manufac = document.getElementById('manufac').value;
-                let type = document.getElementById('type').value;
-                let minPrice = document.getElementById('minPrice').value;
-                let price = document.getElementById('price').value;
+                manufac = document.getElementById('manufac').value;
+                type = document.getElementById('type').value;
+                minPrice = document.getElementById('minPrice').value;
+                price = document.getElementById('price').value;
                 const tr1 = document.createElement('tr');
 
                 // 製造商、類別不可空白
@@ -65,14 +69,17 @@
             // 清空result
             document.getElementById('clear').onclick = function () {
                 document.getElementById('infos').innerHTML = '';
+                clickCounter = 0;
             };
 
             // 修改
             document.getElementById('update').onclick = function (radio) {
 
                 const selected = document.querySelector('input[name="select"]:checked'); //檢核有沒有按 radio
-                let manufac = document.getElementById('manufac').value;
-                let type = document.getElementById('type').value;
+                manufac = document.getElementById('manufac').value;
+                type = document.getElementById('type').value;
+                minPrice = document.getElementById('minPrice').value;
+                price = document.getElementById('price').value;
 
                 if (!selected) {
                     alert('請先點選要更改的資料');
@@ -92,8 +99,10 @@
                 let cells = row.cells;
 
                 // 更新資訊
-                cells[4].innerText = document.getElementById('minPrice').value;
-                cells[5].innerText = document.getElementById('price').value;
+                cells[2].innerText = manufac;
+                cells[3].innerText = type;
+                cells[4].innerText = minPrice;
+                cells[5].innerText = price;
 
             };
         };
