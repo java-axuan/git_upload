@@ -18,11 +18,11 @@
             // 把資料送進result且畫面保留
             document.getElementById('put').onclick = function () {
 
-                let key = document.getElementById('keys').value;
-                let value = document.getElementById('values').value
+                const key = document.getElementById('keys').value;
+                const value = document.getElementById('values').value
 
                 // 判斷key
-                if (map.contains(document.getElementById('keys').value)) {
+                if (map.contains(key.value)) {
                     alert('KEY不可重覆');
                     return;
                 } else if (key == '') {

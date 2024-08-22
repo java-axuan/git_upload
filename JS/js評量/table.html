@@ -24,18 +24,18 @@
         let price;
 
         window.onload = function () {
-
+            
             // 新增
             document.getElementById('insert').onclick = function () {
-
                 manufac = document.getElementById('manufac').value;
                 type = document.getElementById('type').value;
                 minPrice = document.getElementById('minPrice').value;
                 price = document.getElementById('price').value;
+
                 const tr1 = document.createElement('tr');
 
                 // 製造商、類別不可空白
-                if (manufac == '' || type == '') {
+                if (manufac.trim() == '' || type.trim() == '') {
                     alert('請注意!製造商、類別不可空白');
                     return;
                 }
@@ -76,7 +76,7 @@
             document.getElementById('update').onclick = function (radio) {
 
                 const selected = document.querySelector('input[name="select"]:checked'); //檢核有沒有按 radio
-                manufac = document.getElementById('manufac').value;
+                manufac = document.getElementById('manufac').value.trim();
                 type = document.getElementById('type').value;
                 minPrice = document.getElementById('minPrice').value;
                 price = document.getElementById('price').value;
@@ -86,17 +86,16 @@
                     return;
                 }
 
-                if (manufac == '' || type == '') {
+                if (!manufac.trim() || type.trim() == '') {
                     alert('請注意!製造商、類別不可空白');
                     return;
                 }
 
                 // 抓radio在哪裡，找到td
-                let where = document.querySelector('input[name="select"]:checked').parentNode;
+                const where = document.querySelector('input[name="select"]:checked').parentNode;
 
                 // 找到tr
-                let row = where.parentNode;
-                let cells = row.cells;
+                const cells = where.parentNode.cells;
 
                 // 更新資訊
                 cells[2].innerText = manufac;
