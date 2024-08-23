@@ -24,7 +24,7 @@
         let price;
 
         window.onload = function () {
-            
+
             // 新增
             document.getElementById('insert').onclick = function () {
                 manufac = document.getElementById('manufac').value;
@@ -35,7 +35,7 @@
                 const tr1 = document.createElement('tr');
 
                 // 製造商、類別不可空白
-                if (manufac.trim() == '' || type.trim() == '') {
+                if (!manufac.trim() || !type.trim()) {
                     alert('請注意!製造商、類別不可空白');
                     return;
                 }
@@ -66,48 +66,48 @@
 
             };
 
-            // 清空result
-            document.getElementById('clear').onclick = function () {
-                document.getElementById('infos').innerHTML = '';
-                clickCounter = 0;
-            };
-
-            // 修改
-            document.getElementById('update').onclick = function (radio) {
-
-                const selected = document.querySelector('input[name="select"]:checked'); //檢核有沒有按 radio
-                manufac = document.getElementById('manufac').value.trim();
-                type = document.getElementById('type').value;
-                minPrice = document.getElementById('minPrice').value;
-                price = document.getElementById('price').value;
-
-                if (!selected) {
-                    alert('請先點選要更改的資料');
-                    return;
-                }
-
-                if (!manufac.trim() || type.trim() == '') {
-                    alert('請注意!製造商、類別不可空白');
-                    return;
-                }
-
-                // 抓radio在哪裡，找到td
-                const where = document.querySelector('input[name="select"]:checked').parentNode;
-
-                // 找到tr
-                const cells = where.parentNode.cells;
-
-                // 更新資訊
-                cells[2].innerText = manufac;
-                cells[3].innerText = type;
-                cells[4].innerText = minPrice;
-                cells[5].innerText = price;
-
-            };
         };
 
 
-        //刪除
+        // 清空
+        const clearData = function () {
+            document.getElementById('infos').innerHTML = '';
+            clickCounter = 0;
+        }
+
+        // 修改
+        const updateData = function () {
+            const selected = document.querySelector('input[name="select"]:checked'); //檢核有沒有按 radio
+            manufac = document.getElementById('manufac').value;
+            type = document.getElementById('type').value;
+            minPrice = document.getElementById('minPrice').value;
+            price = document.getElementById('price').value;
+
+            if (!selected) {
+                alert('請先點選要更改的資料');
+                return;
+            }
+
+            if (!manufac.trim() || !type.trim()) {
+                alert('請注意!製造商、類別不可空白');
+                return;
+            }
+
+            // 抓radio在哪裡，找到td
+            const where = document.querySelector('input[name="select"]:checked').parentNode;
+
+            // 找到tr
+            const cells = where.parentNode.cells;
+
+            // 更新資訊
+            cells[2].innerText = manufac;
+            cells[3].innerText = type;
+            cells[4].innerText = minPrice;
+            cells[5].innerText = price;
+        }
+
+
+        // 刪除
         const deleteRow = function (button) {
             // 按的是哪一行
             let tr = button.parentNode.parentNode; // button.parentNode : td , button.parentNode.parentNode : tr
@@ -166,8 +166,8 @@
                 <td colspan="4">
                     <div align='center'>
                         <button type="button" id="insert">新增</button>
-                        <button type="button" id="update">修改</button>
-                        <button type="reset" id="clear">清空</button>
+                        <button type="button" id="update" onclick="updateData()">修改</button>
+                        <button type="reset" id="clear" onclick="clearData()">清空</button>
                     </div>
                 </td>
             </tr>
