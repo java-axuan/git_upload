@@ -22,6 +22,7 @@
         let type;
         let minPrice;
         let price;
+        let infos1;
 
         window.onload = function () {
 
@@ -31,6 +32,7 @@
                 type = document.getElementById('type').value;
                 minPrice = document.getElementById('minPrice').value;
                 price = document.getElementById('price').value;
+                infos1 = document.getElementById("infos");
 
                 const tr1 = document.createElement('tr');
 
@@ -62,7 +64,7 @@
                 }
 
                 // 再用infos(tbody)去 append 組裝好的 tr
-                document.getElementById('infos').appendChild(tr1);
+                infos1.appendChild(tr1);
 
             };
 
@@ -71,7 +73,7 @@
 
         // 清空
         const clearData = function () {
-            document.getElementById('infos').innerHTML = '';
+            infos1.innerHTML = '';
             clickCounter = 0;
         }
 
@@ -120,7 +122,6 @@
         // 更新序號function
         const reCount = function () {
 
-            let infos1 = document.getElementById("infos");
             clickCounter = infos1.rows.length; // 刪除資料後的 clickCounter 依照表格有幾列就幾號，不要接續原本的clickCounter
 
             // infos1.rows.length : 總共幾筆資料, .cells[1] : 序號列
