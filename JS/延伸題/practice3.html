@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>心理測驗看「減肥會成功or失敗」</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+        }
+    </style>
+    <script src="psychometricTestArray.js"></script>
+    <script>
+
+        //給自己看
+        const data = psychometricTest;
+        // console.log(data);
+        console.log(data[0]);
+
+        window.onload = function () {
+            document.getElementById('Q1Next').onclick = function () {
+
+                //判斷困難的去Q2
+                // const Q2 = 
+                
+
+                //鎖住Q1 radio、button
+
+                //長出新的題目
+                const table = document.getElementById('content');
+                const tr1 = document.createElement('tr');
+
+                for(let i = 1; i < 5; i++){
+
+                    let td = document.createElement('td');
+                    tr1.appendChild(td);
+
+                }
+                table.appendChild(tr1);
+
+
+                const td1 = document.createElement('td');
+                const td2 = document.createElement('td');
+                const td3 = document.createElement('td');
+                const td4 = document.createElement('td');
+
+                td1.innerHTML = 'Q2';
+                td2.innerHTML = '只要有看到美食廣告會馬上搜尋？';
+                td3.innerHTML = '<input type="radio"  name="Q1" />是<br/><input type = "radio" name = "Q1" />否'
+                td4.innerHTML = '<button type="button" id="Q1Next">下一題';
+
+                tr1.appendChild(td1);
+                tr1.appendChild(td2);
+                tr1.appendChild(td3);
+                tr1.appendChild(td4);
+                table.appendChild(tr1);
+            };
+
+
+        };
+
+    </script>
+
+</head>
+
+<body>
+    <h1>心理測驗看「減肥會成功or失敗」</h1>
+    <p>減重方式五花八門，你確定自己適合哪種減重方式嗎？</p>
+    <p>做個心理測驗試試看吧？</p>
+    <p>心理測驗來源： <a href="https://www.facebook.com/RDJIAHUEI/?locale=zh_TW">李佳蕙營養師</a></p>
+    <br>
+    <hr>
+    <table id="content">
+        <tr>
+            <td>題號</td>
+            <td>題目</td>
+            <td>選項</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Q1</td>
+            <td>處理眾多的事情，你會先處理困難的還是簡單的事情？</td>
+            <td>
+                <input type="radio" name="Q1" />困難的<br />
+                <input type="radio" name="Q1" />簡單<br />
+                <input type="radio" name="Q1" />分配處理
+            </td>
+            <td>
+                <button type="button" id="Q1Next">下一題</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div id="resultDiv"></div>
+
+</body>
+
+</html>
