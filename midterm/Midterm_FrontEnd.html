@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+	<title>期中測驗</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			// 共用API方法，請勿更動
+			var callApi = function callApi(url, param) {
+				return fetch(url, {
+					method: 'post',
+					body: JSON.stringify(param),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}).then(function (response) {
+					return response.json();
+				});
+			}
+			// button觸發查詢與在畫面顯示回傳值
+			document.getElementById('btnSubmit').addEventListener('click', function () {
+				// 請將查詢前要做的事情寫在下方
+				document.getElementById('btnSubmit').hidden = true;
+				document.getElementById('myAnswer').hidden = false;
+				document.getElementById('check').hidden = false;
+
+
+				document.getElementById('check').onclick = function () {
+
+					// 請把要送至後端查詢的資訊，包裝成物件
+					var param = {
+						/*, 範例程式：*/
+						id: '00512345',
+						num: 4,
+
+						// keyword: 'APPLE'
+
+						keyword: document.getElementById('myAnswer').value
+
+					};
+
+
+
+					/* 呼叫callApi方法需傳入2個參數(1.各題後端API的URL, 2.包裝成物件的param)
+					範例程式：'http://localhost:8080/midterm/demoCode'
+					第一題_發撲克牌：'http://localhost:8080/midterm/deal'
+					第二題_證件號碼驗證：'http://localhost:8080/midterm/checkId'
+					第二題_證件號碼驗證_加分題：'http://localhost:8080/midterm/getRandomId'
+					第三題_Wordle：'http://localhost:8080/midterm/wordle'
+					第四題_對對碰：'http://localhost:8080/midterm/matchingGame'
+					第五題_捷運車資計算：'http://localhost:8080/midterm/metro'
+					*/
+					callApi('http://localhost:8080/midterm/wordle', param).then(function (response) {
+						/* API回傳的內容為後端組出的Map，例：
+						{"pokerA":[],"success":true,"returnMessage":"驗證成功","metro_fee":100}
+						
+						可透過response.[key]取值，例：response.returnMessage = '驗證成功'
+						*/
+						console.log('result--->' + response.result);
+						document.getElementById('result').innerHTML = response.result;
+						document.getElementById('result').hidden = false;
+
+					});
+				};
+
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<!--請將html程式碼寫在<body>中
+	按下「送出」按鈕觸發查詢-->
+	<!-- 請輸入<input type="text" id="name" name="name"> -->
+	<button type="button" id="btnSubmit">開始</button><br />
+	<input type="text" id="myAnswer" hidden /><br />
+	<button type="button" id="check" hidden>對答案</button><br />
+	<span id="result" hidden></span>
+</body>
+
+</html>
